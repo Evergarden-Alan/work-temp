@@ -183,7 +183,7 @@ class BertTrainer(Trainer):
         self.is_moe = args.is_moe
 
     def forward_propagation(self, batch, model):
-        debug_mode = False
+        debug_mode = True
         if debug_mode:
             print("In function forward_propagation(self, batch, model):")
             print("type of batch:",type(batch))
@@ -201,6 +201,8 @@ class BertTrainer(Trainer):
             loss_mlm, loss_sp, correct_mlm, correct_sp, denominator = loss_info
             gate_loss = 0.0
         loss = loss_mlm/10 + loss_sp + self.load_balance_alpha * gate_loss
+        if debug_mode:
+            print(loss) 
         self.total_loss += loss.item()
         self.total_loss_mlm += loss_mlm.item()
         self.total_loss_sp += loss_sp.item()
@@ -209,7 +211,7 @@ class BertTrainer(Trainer):
         self.total_denominator += denominator.item()
         self.total_instances += src.size(0)
         loss = loss / self.accumulation_steps
-
+        print(loss)
         return loss
 
     def report_and_reset_stats(self):

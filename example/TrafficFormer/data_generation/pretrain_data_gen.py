@@ -455,5 +455,5 @@ def merge_txts():
 
 
 if __name__ == "__main__":
-    # pretrain_dataset_generation(pcapng_path="dataset/NonVPN-PCAPs-01/",pcap_output_path="dataset/output/",output_split_path="dataset/",select_packet_len=800,corpora_path="dataset/corpora/",start_index=28, enhance_factor = 1, is_multi=True)
+    pretrain_dataset_generation(pcapng_path="dataset/NonVPN-PCAPs-01/",pcap_output_path="dataset/output/",output_split_path="dataset/",select_packet_len=800,corpora_path="dataset/corpora/",start_index=28, enhance_factor = 1, is_multi=True)
     corpora_to_bigram("dataset/corpora_biburst.txt","dataset/corpora_bigram.txt")
