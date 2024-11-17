@@ -98,8 +98,8 @@ def main():
     parser.add_argument("--backend", choices=["nccl", "gloo"], default="nccl", type=str, help="Distributed backend.")
 
 
-    args = parser.parse_args(["--dataset_path=dataset.pt","--vocab_path=dataset/vocab.txt","--output_model_path=model.bin","--world_size=3"," --gpu_ranks 0 1 2"," --master_ip=tcp://localhost:12345","--total_steps=90000","--save_checkpoint_steps=10000","--batch_size=64","--embedding=word_pos_seg","--encoder=transformer","--mask=fully_visible","--target=bertflow"])
-
+    # args = parser.parse_args(["--dataset_path=dataset.pt","--vocab_path=dataset/vocab.txt","--output_model_path=model.bin","--world_size=3"," --gpu_ranks 0 1 2"," --master_ip=tcp://localhost:12345","--total_steps=90000","--save_checkpoint_steps=10000","--batch_size=64","--embedding=word_pos_seg","--encoder=transformer","--mask=fully_visible","--target=bertflow"])
+    args = parser.parse_args()
     if args.target == "cls":
         assert args.labels_num is not None, "Cls target needs the denotation of the number of labels."
 
